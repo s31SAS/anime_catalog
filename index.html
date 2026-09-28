@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anime Waifu — Каталог аниме-персонажей</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="logo" data-page="home">
+        <span class="logo-icon">★</span> Anime<span class="accent">Waifu</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#" data-page="home" class="nav-link active">Главная</a>
+        <a href="#" data-page="characters" class="nav-link">Персонажи</a>
+        <a href="#" data-page="anime" class="nav-link">Аниме</a>
+        <a href="#" data-page="favorites" class="nav-link">Избранное <span class="fav-badge" id="favBadge">0</span></a>
+      </nav>
+
+      <div class="nav-tools">
+        <div class="search-wrap">
+          <input type="text" id="searchInput" class="search-input" placeholder="Поиск: имя или аниме..." />
+          <span class="search-icon">🔍</span>
+        </div>
+        <button class="theme-btn" id="themeToggle" title="Сменить тему">🌙</button>
+        <button class="burger" id="burger" aria-label="Меню">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN APP ===== -->
+  <main id="app">
+    <!-- HOME PAGE -->
+    <section class="page" id="page-home">
+      <div class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+          <h1 class="hero-title">Каталог аниме-персонажей <span class="grad">и вайфу</span></h1>
+          <p class="hero-sub">Интерактивная коллекция лучших женских персонажей из мира аниме. Открывай истории, смотри галереи и собирай своё избранное.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" data-page="characters">Смотреть персонажей</button>
+            <button class="btn btn-ghost" data-page="favorites">Моё избранное</button>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><span class="stat-num" id="statTotal">0</span><span class="stat-label">персонажей</span></div>
+            <div class="stat"><span class="stat-num" id="statAnime">0</span><span class="stat-label">аниме</span></div>
+            <div class="stat"><span class="stat-num" id="statFav">0</span><span class="stat-label">в избранном</span></div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>Популярные персонажи</h2>
+          <button class="link-btn" data-page="characters">Все персонажи →</button>
+        </div>
+        <div class="grid" id="popularGrid"></div>
+      </section>
+    </section>
+
+    <!-- CHARACTERS PAGE -->
+    <section class="page hidden" id="page-characters">
+      <div class="section-head">
+        <h2>Все персонажи <span class="count-chip" id="charCount">0</span></h2>
+      </div>
+
+      <div class="controls">
+        <div class="filters" id="filters">
+          <button class="filter active" data-filter="all">Все</button>
+          <button class="filter" data-filter="popular">Популярные</button>
+          <button class="filter" data-filter="favorites">Избранные</button>
+        </div>
+
+        <div class="controls-right">
+          <select id="animeFilter" class="select">
+            <option value="all">Все аниме</option>
+          </select>
+          <select id="sortSelect" class="select">
+            <option value="popularity">Сортировка: популярность</option>
+            <option value="name">Сортировка: имя</option>
+            <option value="anime">Сортировка: аниме</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid" id="charGrid"></div>
+      <div class="empty hidden" id="emptyState">
+        <div class="empty-icon">🔎</div>
+        <h3>Ничего не найдено</h3>
+        <p>Попробуй изменить запрос или фильтры.</p>
+      </div>
+    </section>
+
+    <!-- ANIME PAGE -->
+    <section class="page hidden" id="page-anime">
+      <div class="section-head"><h2>Аниме в каталоге</h2></div>
+      <div class="grid grid-anime" id="animeGrid"></div>
+    </section>
+
+    <!-- FAVORITES PAGE -->
+    <section class="page hidden" id="page-favorites">
+      <div class="section-head"><h2>Избранное <span class="count-chip" id="favCount">0</span></h2></div>
+      <div class="grid" id="favGrid"></div>
+      <div class="empty hidden" id="favEmpty">
+        <div class="empty-icon">💔</div>
+        <h3>Пока пусто</h3>
+        <p>Нажми на сердечко на карточке персонажа, чтобы добавить в избранное.</p>
+      </div>
+    </section>
+
+    <!-- CHARACTER DETAIL PAGE -->
+    <section class="page hidden" id="page-detail"></section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>© <span id="year"></span> AnimeWaifu — фан-каталог. Все персонажи принадлежат их правообладателям.</p>
+  </footer>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <div class="lightbox hidden" id="lightbox">
+    <button class="lb-close" id="lbClose">✕</button>
+    <button class="lb-nav lb-prev" id="lbPrev">‹</button>
+    <img class="lb-img" id="lbImg" src="" alt="gallery image" />
+    <button class="lb-nav lb-next" id="lbNext">›</button>
+    <div class="lb-counter" id="lbCounter"></div>
+  </div>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <button class="to-top hidden" id="toTop" title="Наверх">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
