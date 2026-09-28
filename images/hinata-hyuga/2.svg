@@ -1,0 +1,28 @@
+<!--
+  ЗАГЛУШКА 2 для «HINATA HYŪGA».
+  Как заменить на реальный арт: положите рядом файл 1.jpg (900x1200, портрет)
+  и в script.js в объекте персонажа поменяйте путь на "images/hinata-hyuga/1.jpg".
+  Либо просто перезапишите этот .svg своим изображением с тем же именем.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" role="img" aria-label="HINATA HYŪGA — изображение 2">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#bde0fe"/><stop offset="55%" stop-color="#4b3f9e"/><stop offset="100%" stop-color="#0a0c16"/>
+    </linearGradient>
+    <radialGradient id="r" cx="50%" cy="36%" r="72%">
+      <stop offset="0%" stop-color="#eef6ff" stop-opacity="0.5"/><stop offset="100%" stop-color="#eef6ff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="p" width="38" height="38" patternUnits="userSpaceOnUse" patternTransform="rotate(20)">
+      <circle cx="19" cy="19" r="1.5" fill="#eef6ff" fill-opacity="0.3"/>
+    </pattern>
+  </defs>
+  <rect width="900" height="1200" fill="url(#g)"/>
+  <rect width="900" height="1200" fill="url(#p)"/>
+  <circle cx="450" cy="420" r="330" fill="url(#r)"/>
+  <circle cx="450" cy="420" r="248" fill="none" stroke="#eef6ff" stroke-opacity="0.45" stroke-width="2"/>
+  <circle cx="450" cy="420" r="300" fill="none" stroke="#eef6ff" stroke-opacity="0.2" stroke-width="1.5" stroke-dasharray="10 14"/>
+  <text x="450" y="520" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="290" font-weight="700" fill="#eef6ff" fill-opacity="0.95">Х</text>
+  <text x="450" y="990" text-anchor="middle" font-family="Verdana, Geneva, sans-serif" font-size="38" letter-spacing="5" fill="#eef6ff" fill-opacity="0.92">HINATA HYŪGA</text>
+  <text x="450" y="1040" text-anchor="middle" font-family="Verdana, Geneva, sans-serif" font-size="24" letter-spacing="4" fill="#eef6ff" fill-opacity="0.6">NARUTO</text>
+  <text x="450" y="1120" text-anchor="middle" font-family="Verdana, Geneva, sans-serif" font-size="20" letter-spacing="7" fill="#eef6ff" fill-opacity="0.45">IMAGE 2 / 6 — REPLACE ME</text>
+</svg>
